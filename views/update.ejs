@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>testing MongoDB</title>
+	<style type="text/css">
+		body{
+background:#0d1521 ;
+font-family:tahoma;
+color:#989898;
+}
+#todo-table{
+	position:relative;
+	width:100%; 
+	background :#090d13;
+	margin:0 auto;
+	padding:10px;
+	box-sizing: border-box;
+}
+#todo-table form:after{
+margin: 0;
+content:'';
+display: block;
+clear:both;
+}
+input{
+	width: 70%;
+	padding:2.7%;
+	background:#181c22;
+	border: 0;
+	float: left;
+	color: white;
+	font-size: 14px;
+	border-radius:25px 25px;
+}
+a{
+	text-decoration: none;
+}
+.btn{
+	height: 25px;
+	width: 20%;
+	float:right;
+	background:DodgerBlue;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius:15px 15px;
+	padding:10px;
+	line-height: 30px;
+	float: center;
+}
+.btn:hover{
+	height: 25px;
+	width: 20%;
+	float:right;
+	background:DeepSkyBlue;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius:15px 15px;
+	padding:10px;
+	line-height: 30px;
+}
+button{
+	height: 50px;
+	width: 70%;
+	float:right;
+	background: #23282e;
+	border: 0;
+	box-sizing: border-box;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 15px;
+
+	border-radius:10px 10px;
+
+}
+#newTable{
+font-family: arial;
+	font-size: 20px;
+	cursor: pointer;
+	letter-spacing: 1px;
+	color: white;
+	position:relative;
+	width:100%; 
+	background :#090d13;
+	margin:0 auto;
+	padding:10px;
+	box-sizing: border-box;
+	border-radius:0px 15px;
+}
+#newTable td{
+	text-align: center;
+	margin:0 auto;
+	padding:10px;}
+#newTable td:hover{
+	text-decoration: line-through;
+	background: rgba(0,0,0,0.2);
+	margin:0 auto;
+	padding:10px;}
+h1{
+	background: url(/logo.png) no-repeat center;
+}
+	</style>
+</head>
+<body>
+
+	<form method="POST" action="/update/<%=dataA._id%>">
+	<table id="todo-table">		
+		<tbody>
+			<tr>				
+			<td><input type="text" name="title" placeholder="title" required value="<%=dataA.title%>"></td>
+			<td><input type="text" name="price" placeholder="price" required value="<%=dataA.price%>"></td>
+			<td><input type="text" name="instock" placeholder="instock" required value="<%=dataA.instock%>"></td>
+			<td><input type="file" name="photo" placeholder="file" required value="<%=dataA.photo%>"></td>
+			<td><button type="submit">add item</button></td>
+		
+			</tr>
+		</tbody>
+	
+	</form>
+</body>
+</html>

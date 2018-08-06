@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>testing MongoDB</title>
+	<style type="text/css">
+		body{
+background:#0d1521 ;
+font-family:tahoma;
+color:#989898;
+}
+#todo-table{
+	position:relative;
+	width:100%; 
+	background :#090d13;
+	margin:0 auto;
+	padding:10px;
+	box-sizing: border-box;
+}
+#todo-table form:after{
+margin: 0;
+content:'';
+display: block;
+clear:both;
+}
+input{
+	width: 70%;
+	padding:2.7%;
+	background:#181c22;
+	border: 0;
+	float: left;
+	color: white;
+	font-size: 14px;
+	border-radius:25px 25px;
+}
+a{
+	text-decoration: none;
+}
+.btn{
+	height: 25px;
+	width: 20%;
+	float:right;
+	background:DodgerBlue;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius:15px 15px;
+	padding:10px;
+	line-height: 30px;
+	float: center;
+}
+.btn:hover{
+	height: 25px;
+	width: 20%;
+	float:right;
+	background:DeepSkyBlue;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius:15px 15px;
+	padding:10px;
+	line-height: 30px;
+}
+button{
+	height: 50px;
+	width: 70%;
+	float:right;
+	background: #23282e;
+	border: 0;
+	box-sizing: border-box;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 15px;
+
+	border-radius:10px 10px;
+
+}
+#newTable{
+font-family: arial;
+	font-size: 20px;
+	cursor: pointer;
+	letter-spacing: 1px;
+	color: white;
+	position:relative;
+	width:100%; 
+	background :#090d13;
+	margin:0 auto;
+	padding:10px;
+	box-sizing: border-box;
+	border-radius:0px 15px;
+}
+#newTable td{
+	text-align: center;
+	margin:0 auto;
+	padding:10px;}
+#newTable td:hover{
+	text-decoration: line-through;
+	background: rgba(0,0,0,0.2);
+	margin:0 auto;
+	padding:10px;}
+h1{
+	background: url(/logo.png) no-repeat center;
+}
+	</style>
+</head>
+<body>
+
+	<form method="POST" action="/products">
+	<table id="todo-table">		
+		<tbody>
+			<tr>				
+			<td><input type="text" name="title" placeholder="title" required></td>
+			<td><input type="text" name="price" placeholder="price" required></td>
+			<td><input type="text" name="instock" placeholder="instock" required></td>
+			<td><input type="file" name="photo" placeholder="file" required></td>
+			<td><button type="submit">add item</button></td>
+		
+			</tr>
+		</tbody>
+		
+	</table><br>	<br>	
+	<table id="newTable">
+		<thead>			
+				<th>title</th>
+				<th>price</th>
+				<th>instock</th>
+				<th>photo</th>
+				<th>action</th>
+			
+		</thead>
+	<% for(var i = 0; i < datas.length; i++){ %>
+		
+	<tr>	
+			<td><%=datas[i].title%></td>
+			<td><%=datas[i].price%></td>
+			<td><%=datas[i].instock%></td>
+			<td><%=datas[i].photo%></td>
+			<td><a href="/update/<%=datas[i]._id%>" type="buton"  class="btn" >update</a>
+				<a href="/delete/<%=datas[i]._id%>" type="button"  class="btn">delete</a></td>
+	</tr>		
+		<%}%>
+	</table>
+	</form>
+</body>
+</html>
